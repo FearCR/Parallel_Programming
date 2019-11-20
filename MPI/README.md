@@ -7,7 +7,7 @@ mpic++
 
 mpiexec -n numeroDeProcesos ejecutable
 ```
-* **Lineas basicas que tiene todo progrma de MPI:**     
+* **Lineas basicas que tiene todo programa de MPI:**     
 ```C++
 #include <mpi.h>
 
@@ -65,7 +65,7 @@ MPI_Reduce(input_data*,output_data*,count,data_type,MPI_operator,dest_process,MP
 //si se hacen multiples llamados a reduce, se toma en cuenta el orden en que se hacen
 //NO el nombre de la memoria, ver filminas 50, 51 y 52 del cap 3
 ```
-**NO MEZCLAR FUNCIOENES COLECTIVAS**  
+**NO MEZCLAR FUNCIONES COLECTIVAS**  
 **NO MEZCLAR DESTINOS, LOS ARGUMENTOS DEBEN SER COMPATIBLES**
 
 
