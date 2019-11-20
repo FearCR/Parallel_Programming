@@ -78,7 +78,8 @@ MPI_Allreduce(input_data*, output_data*, count, data_type, MPI_operator, MPI_COM
 MPI_Bcast(data*, count,data_type, process_source, MPI_COMM_WORLD)
 // envia a todos los procesos datos perteneciente a un solo proceso (Broadcast)
 ```  
-un ejemplo de usos multiples de bcast con inputs de usuario se puede ver en la diapositiva 58.  
+un ejemplo de usos multiples de bcast con inputs de usuario se puede ver en la diapositiva 58. 
+  
 ```C++
 MPI_Scatter(send_buffer*,send_count,data_type, recieve_buffer*,recieve_count,data_type,process_source, MPI_COMM_WORLD)
 //distribuye y envia un vector a otros procesos
@@ -87,6 +88,7 @@ double* send_buffer=malloc(size*sizeof(double))//se hace antes del scatter al de
 send_buffer[i]= ...
 //ejemplo en filmina 65
 ```  
+  
 ```C++
 MPI_Gather(send_buffer*,send_count,data_type,recieve_buffer,recieve_count,data_type,Process_destination,MPI_COMM_WORLD)
 //proceso inverso a scatter, recoge las partes distribuidas de un vector y las une en un proceso determinado(proceso 0)
@@ -94,7 +96,14 @@ double* recieve_buffer=malloc(size*sizeof(double))//se hace antes del gather al 
 prinf(recieve_buffer[i])...
 //ejemplo en filmina 68
 ```  
+  
 ```C++
 MPI_Allgather(send_buffer*,send_count,data_type,recieve_buffer,recieve_count,data_type, MPI_COMM_WORLD)
 //concatena los contenidos de cada procesos(send_buffer) y los guarda en cada proceso (recieve_buffer)
 ```  
+  
+```C++
+MPI_Barrier(MPI_COMM_WORLD)
+//espera a que todos los demas procesos lleguen a ese punto, usado mas que todo para que un procesos no finalice el programa
+//antes de que los demas terminen.
+```
