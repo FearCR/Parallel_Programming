@@ -1,5 +1,6 @@
 # Guia de funciones y uso de MPI
 * Compilacion y ejecucion:  
+
 #include <mpi.h>  
 
 mpicc -g -Wall -o mpi_hola mpi_hola.c  
@@ -8,6 +9,7 @@ mpic++
 mpiexec -n numeroDeProcesos ejecutable
 
 * Lineas basicas que tiene todo progrma de MPI:     
+
 MPI_Init(NULL,NULL) //inicia MPI  
 comm=MPI_COMM_WORLD //comunicador  
 
