@@ -9,7 +9,7 @@ mpic++
 mpiexec -n numeroDeProcesos ejecutable
 
 * Lineas basicas que tiene todo progrma de MPI:     
-
+```C++
 MPI_Init(NULL,NULL) //inicia MPI  
 comm=MPI_COMM_WORLD //comunicador  
 
@@ -32,5 +32,6 @@ if(my_rank==0){//proceso 0 hace algo diferente}
   
  
 MPIFinalize() //termina MPI  
-  
+```  
+
 ver diapositiva 39 para un ejemplo con sends y recieves multiples con un input de usuario  
