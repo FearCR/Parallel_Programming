@@ -1,5 +1,5 @@
 # Guia de funciones y uso de MPI
-* Compilacion y ejecucion:  
+* **Compilacion y ejecucion:**  
 
 ```Bash
 mpicc -g -Wall -o mpi_hola mpi_hola.c  
@@ -7,7 +7,7 @@ mpic++
 
 mpiexec -n numeroDeProcesos ejecutable
 ```
-* Lineas basicas que tiene todo progrma de MPI:     
+* **Lineas basicas que tiene todo progrma de MPI:**     
 ```C++
 #include <mpi.h>
 
@@ -41,7 +41,7 @@ MPIFinalize() //termina MPI
 Ver diapositiva 39 para un ejemplo con sends y recieves multiples con un input de usuario.  
 
 
-* Comunicacion Colectiva de procesos:
+* **Comunicacion Colectiva de procesos:**
 
 ```C++
 MPI_Reduce(input_data*,output_data*,count,data_type,MPI_operator,dest_process,MPI_COMM_WORLD)
