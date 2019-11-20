@@ -83,14 +83,14 @@ un ejemplo de usos multiples de bcast con inputs de usuario se puede ver en la d
 MPI_Scatter(send_buffer*,send_count,data_type, recieve_buffer*,recieve_count,data_type,process_source, MPI_COMM_WORLD)
 //distribuye y envia un vector a otros procesos
 
-double* send_buffer=malloc(size*sizeof(double))
+double* send_buffer=malloc(size*sizeof(double))//se hace antes del scatter al definir la variable, es solo un recordatorio
 send_buffer[i]= ...
 //ejemplo en filmina 65
 ```  
 ```C++
 MPI_Gather(send_buffer*,send_count,data_type,recieve_buffer,recieve_count,data_type,Process_destination,MPI_COMM_WORLD)
 //proceso inverso a scatter, recoge las partes distribuidas de un vector y las une en un proceso determinado(proceso 0)
-double* recieve_buffer=malloc(size*sizeof(double))
+double* recieve_buffer=malloc(size*sizeof(double))//se hace antes del gather al definir la variable, es solo un recordatorio
 prinf(recieve_buffer[i])...
 //ejemplo en filmina 68
 ```  
