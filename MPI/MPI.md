@@ -15,8 +15,7 @@ comm=MPI_COMM_WORLD //comunicador
 
 MPI_Comm_size(MPI_COMM_WORLD,&variable_int)//para tener el numero total de procesos  
 MPI_Comm_rank(MPI_COMM_WORLD, &variable_int)//para tener el id de cada proceso de 0 a numProcesos  
-
-MPIFinalize() //termina MPI  
+  
 
 MPI_Send(msg_buffer*, size, type,Process_destination,tag,MPI_COMM_WORLD)    
 MPI_Recv(msg_buffer*, size, type, Process_source, tag, MPI_COMM_WORLD, status ) //MPI_STATUS_IGNORE  
@@ -30,5 +29,8 @@ MPI_Recv(msg_buffer*, size, type, Process_source, tag, MPI_COMM_WORLD, status ) 
   etc
 
 if(my_rank==0){//proceso 0 hace algo diferente}  
-
+  
+ 
+MPIFinalize() //termina MPI  
+  
 ver diapositiva 39 para un ejemplo con sends y recieves multiples con un input de usuario  
