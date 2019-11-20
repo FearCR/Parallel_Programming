@@ -21,7 +21,8 @@ MPI_Comm_rank(MPI_COMM_WORLD, &variable_int)//para tener el id de cada proceso d
 
 MPI_Send(msg_buffer*, size, type,Process_destination,tag,MPI_COMM_WORLD)    
 MPI_Recv(msg_buffer*, size, type, Process_source, tag, MPI_COMM_WORLD, status ) //MPI_STATUS_IGNORE  
-
+  
+/*
   Tipos:
   MPI_CHAR
   MPI_INT  
@@ -29,7 +30,8 @@ MPI_Recv(msg_buffer*, size, type, Process_source, tag, MPI_COMM_WORLD, status ) 
   MPI_FLOAT
   MPI_DOUBLE
   etc
-
+*/
+  
 if(my_rank==0){//proceso 0 hace algo diferente}  
   
  
