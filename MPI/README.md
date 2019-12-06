@@ -107,3 +107,54 @@ MPI_Barrier(MPI_COMM_WORLD)
 //espera a que todos los demas procesos lleguen a ese punto, usado mas que todo para que un procesos no finalice el programa
 //antes de que los demas terminen.
 ```
+
+**Ejemplo de gather y scatter**
+```C++
+
+#include <mpi.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main(int argc, char **argv) {
+
+  int size, rank;
+  
+//se inicia mpi
+  MPI_Init(&argc, &argv);
+  MPI_Comm_size(MPI_COMM_WORLD, &size);
+  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+  int globaldata[TAMANO];/*wants to declare array this way*/
+  int localdata[TAMANO/size];/*without using pointers*/
+  int i;
+  //proceso 0 inicializa el vector global con numeros aleatorios
+  if (rank == 0) {
+    for (i=0; i<TAMANO; i++){
+      globaldata[i] = rand()%1000+1;
+    }
+
+
+  }
+//se reparte el vector global en vectores locales
+  MPI_Scatter(globaldata, TAMANO/size, MPI_INT, &localdata, TAMANO/size, MPI_INT, 0, MPI_COMM_WORLD);
+
+
+  for (i=0; i<TAMANO/size; i++){
+   //se trabaja el vector
+  }
+  
+  //se espera a que todos los procesos terminen
+  MPI_Barrier(MPI_COMM_WORLD);
+
+//se envian los vectores locales al vector global en el proceso 0
+  MPI_Gather(&localdata, TAMANO/size, MPI_INT, globaldata, TAMANO/size, MPI_INT, 0, MPI_COMM_WORLD);
+
+
+
+  MPI_Finalize();
+  return 0;
+}
+```
+
