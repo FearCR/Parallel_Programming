@@ -116,6 +116,9 @@ MPI_Barrier(MPI_COMM_WORLD)
 #include <stdlib.h>
 #include <iostream>
 #include <math.h>
+
+#define TAMANO 100
+
 using namespace std;
 int main(int argc, char **argv) {
 
